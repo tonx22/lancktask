@@ -1,0 +1,12 @@
+version: "3.9"
+services:
+  app:
+    build:
+      dockerfile: Dockerfile
+    container_name: container_app
+    environment:
+      - GRPC_PORT=${GRPC_PORT}
+    ports:
+      - "${GRPC_PORT}:${GRPC_PORT}"
+    stdin_open: true # docker run -i
+    tty: true        # docker run -t

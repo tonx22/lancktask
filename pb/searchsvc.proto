@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+option go_package = "lancktask/pb";
+
+package pb;
+
+// The Search service definition.
+service SearchSvc {
+  rpc GetCodeByNumber (PhoneNumberRequest) returns (MCCMNCCodeReply) {}
+  rpc StreamingGetCodeByNumber (stream PhoneNumberRequest) returns (stream MCCMNCCodeReply) {}
+}
+
+message PhoneNumberRequest {
+  string phone_number = 1;
+}
+
+message MCCMNCCodeReply {
+  string mccmnc_code = 1;
+}
